@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div style="display: flex">
+    <img src="{{ cat_image }}" alt="happy cat" width="200">
+    <div style="margin-left: 40px">
+        <h3>Имя - {{ name }}</h3>
+        <h3>Возраст - {{ age }}</h3>
+        <h3>Уровень сытости - {{ fullness }}</h3>
+        <h3>Уровень счастья - {{ happiness }}</h3>
+    </div>
+</div>
+
+<div>
+    <form action="" method="POST" style="font-size:19px">
+    {% csrf_token %}
+        <select name="action" required>
+            <option value=""disabled selected>Выберите действие</option>
+            <option value='play'>Поиграть с котом</option>
+            <option value='feed'>Покормить кота</option>
+            <option value='sleep'>Уложить спать кота</option>
+        </select>
+        <br>
+        <button type="submit">Подтвердить</button>
+    </form>
+</div>
+
+</body>
+</html>
